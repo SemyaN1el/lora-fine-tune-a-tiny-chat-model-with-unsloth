@@ -79,8 +79,29 @@ def trainable_fraction(trainable_count, total_count):
 
     return trainable_count / total_count
 
-# Step 9 - build_instruction_examples (not yet solved)
-# TODO: implement
+# Step 9 - build_instruction_examples
+def build_instruction_examples():
+    """Return a small list of {'instruction', 'response'} dicts for SFT."""
+    
+
+    return [
+        {
+            "instruction": "What is machine learning?",
+            "response": "Machine learning is a method where computers learn patterns from data."
+        },
+        {
+            "instruction": "Explain LoRA briefly.",
+            "response": "LoRA fine-tunes a model by training small low-rank adapter matrices while keeping the base weights frozen."
+        },
+        {
+            "instruction": "What is quantization?",
+            "response": "Quantization reduces the numerical precision of model weights to lower memory usage and often speed up inference."
+        },
+        {
+            "instruction": "What does a tokenizer do?",
+            "response": "A tokenizer converts text into tokens that a language model can process."
+        }
+    ]
 
 # Step 10 - format_instruction_example (not yet solved)
 # TODO: implement
