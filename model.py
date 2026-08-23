@@ -26,8 +26,12 @@ def count_total_parameters(model):
 
     return sum(p.numel() for p in model.parameters())
 
-# Step 3 - is_model_4bit_quantized (not yet solved)
-# TODO: implement
+# Step 3 - is_model_4bit_quantized
+import bitsandbytes as bnb
+
+def is_model_4bit_quantized(model):
+    
+    return any(isinstance(module, bnb.nn.Linear4bit) for module in model.modules())
 
 # Step 4 - ensure_pad_token (not yet solved)
 # TODO: implement
