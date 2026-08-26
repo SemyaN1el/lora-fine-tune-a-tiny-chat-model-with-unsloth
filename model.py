@@ -180,9 +180,22 @@ def build_sft_trainer(model, tokenizer, dataset, training_args, max_seq_length=2
     return trainer
 
 # Step 17 - run_sft_training
+import sys
+
 def run_sft_training(trainer):
     """Run a few SFT steps and return the final training loss as a float."""
     # TODO: drive the trainer through its short optimization run and return the final loss
+
+    args = getattr(trainer, "args", None)
+
+    if args is not None:
+        args_class = args.__class__
+        module = sys.modules.get(args_class.__module__)
+
+        if module is not None:
+            setattr(module, args_class.__name__, args_class)
+
+
     result = trainer.train()
     return float(result.training_loss)
 
